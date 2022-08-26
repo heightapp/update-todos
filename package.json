@@ -39,6 +39,13 @@
     "yargs": "^17.5.1"
   },
   "dependencies": {
+    "@types/git-diff-parser": "^1.0.1",
+    "@types/gitignore-parser": "^0.0.0",
+    "@types/memoizee": "^0.4.8",
     "@types/node": "^18.7.11",
+    "comment-patterns": "^0.12.2",
+    "git-diff-parser": "^1.0.0",
+    "gitignore-parser": "^0.0.2",
+    "memoizee": "^0.4.15"
   }
 }
