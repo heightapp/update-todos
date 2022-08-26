@@ -1,0 +1,44 @@
+{
+  "name": "@heightapp/update-todos",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "typings": "./dist/types/index.d.ts",
+  "scripts": {
+    "build": "NODE_ENV=production ./scripts/build.js --esm --cjs --types",
+    "lint": "eslint ./src",
+    "prepare": "npm run build"
+  },
+  "repository": "git+https://github.com/heightapp/update-todos.git",
+  "author": "Height",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heightapp/update-todos/issues"
+  },
+  "homepage": "https://github.com/heightapp/update-todos#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.11.0",
+    "@typescript-eslint/parser": "^5.34.0",
+    "esbuild": "^0.15.5",
+    "esbuild-plugin-ifdef": "^1.0.1",
+    "escape-string-regexp": "^5.0.0",
+    "eslint": "^8.22.0",
+    "eslint-plugin-import": "^2.26.0",
+    "tsc-alias": "^1.7.0",
+    "typescript": "^4.7.4",
+    "yargs": "^17.5.1"
+  },
+  "dependencies": {
+    "@types/node": "^18.7.11",
+  }
+}
