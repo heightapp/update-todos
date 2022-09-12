@@ -1,7 +1,3 @@
-import GitRepo from 'helpers/gitRepo';
-
-export function parseGitIgnore(repoPath: string) {
-  return new GitRepo({path: repoPath}).parseGitIgnore();
-}
-
+export {default as parseGitIgnore} from 'parseGitIgnore';
+export {default as todoRegexes} from 'todoRegexes';
 export {default} from 'updateTodos';
