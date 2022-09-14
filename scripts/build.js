@@ -67,6 +67,7 @@ const build = async () => {
         esbuild.build({
           ...config,
           outdir,
+          outExtension: {'.js': '.mjs'},
           format: 'esm',
           tsconfig,
         }),
@@ -81,6 +82,7 @@ const build = async () => {
         esbuild.build({
           ...config,
           outdir,
+          outExtension: {'.js': '.cjs'},
           format: 'cjs',
           tsconfig,
         }),
