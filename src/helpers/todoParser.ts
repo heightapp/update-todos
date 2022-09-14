@@ -19,7 +19,7 @@ class TodoParser {
     const regexes = commentRegexesFromPath(this.filePath);
 
     // Test for single line comments
-    const singleLineRegex = regexes.singleLine ? singleLineTodoRegex(...regexes.singleLine) : null;
+    const singleLineRegex = regexes.singleLine ? singleLineTodoRegex(true, ...regexes.singleLine) : null;
     if (singleLineRegex) {
       const singleLineMatch = line.match(singleLineRegex.regex);
       if (singleLineMatch?.length) {
@@ -31,7 +31,7 @@ class TodoParser {
     }
 
     // Test for multi line comments
-    const multiLineRegexes = regexes.multiLine?.map(({start, end}) => multiLineTodoRegex(start, end)) ?? [];
+    const multiLineRegexes = regexes.multiLine?.map(({start, end}) => multiLineTodoRegex(true, start, end)) ?? [];
     for (let i = 0; i < multiLineRegexes.length; i++) {
       const mutiLineRegex = multiLineRegexes[i];
       const multiLineMatch = line.match(mutiLineRegex.regex);
