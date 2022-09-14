@@ -39,7 +39,7 @@
     "yargs": "^17.5.1"
   },
   "dependencies": {
-    "@heightapp/comment-patterns": "^0.12.8",
+    "@heightapp/comment-patterns": "0.13.0",
     "@types/git-diff-parser": "^1.0.1",
     "@types/gitignore-parser": "^0.0.0",
     "@types/memoizee": "^0.4.8",

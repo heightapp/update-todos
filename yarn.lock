@@ -22,10 +22,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@heightapp/comment-patterns@^0.12.8":
-  version "0.12.8"
-  resolved "https://registry.yarnpkg.com/@heightapp/comment-patterns/-/comment-patterns-0.12.8.tgz#344d5083d42b16f4ab4da0182d533d3e337c3b4e"
-  integrity sha512-cOssijZmFKeknBW79WyCpMJBpSayoP2P04cKPFdAjpnoC15FbSNmoR+mzIcCGfiRjiUTaymwk6+hFX00Nvj1dw==
+"@heightapp/comment-patterns@0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@heightapp/comment-patterns/-/comment-patterns-0.13.0.tgz#9242bec46021c80dde0886ffe0aabdf40c8451c0"
+  integrity sha512-OA75SYwQsBN8PYb1fl5SwHn1adJGksGZiJ+VGZcT3v6AbAPCp1sf9QHvidY/a2IC2QRnzskbY4Fs6tH/XtQjyQ==
   dependencies:
     lodash "^4.17.11"
 
