@@ -3,7 +3,7 @@ import memoize from 'memoizee';
 export const TODO_PATTERN_WITHOUT_MATCH = 'TODO:?(?:\\s+|$)';
 export const TODO_PATTERN_WITH_MATCH = 'TODO:?\\s+(.*)';
 
-const PRE_COMMENT_PATTERN = '(?:^|\\s+)';
+const PRE_COMMENT_PATTERN = '.*(?:^|\\s+)';
 
 const singleLineTodoRegexFromSources = memoize(
   (match: boolean, ...regexSources: Array<string>) => {
