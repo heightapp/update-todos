@@ -3,10 +3,12 @@ import memoize from 'memoizee';
 export const TODO_PATTERN_WITHOUT_MATCH = 'TODO:?(?:\\s+|$)';
 export const TODO_PATTERN_WITH_MATCH = 'TODO:?\\s+(.*)';
 
+const PRE_COMMENT_PATTERN = '(?:^|\\s+)';
+
 const singleLineTodoRegexFromSources = memoize(
   (match: boolean, ...regexSources: Array<string>) => {
     const startSource = regexSources.map((regexSource) => `(?:${regexSource})`).join('|');
-    return new RegExp(`^(\\s*${startSource}\\s*)${match ? TODO_PATTERN_WITH_MATCH : TODO_PATTERN_WITHOUT_MATCH}`, 'i');
+    return new RegExp(`(${PRE_COMMENT_PATTERN}${startSource}\\s*)${match ? TODO_PATTERN_WITH_MATCH : TODO_PATTERN_WITHOUT_MATCH}`, 'i');
   },
   {
     max: 100,
@@ -18,7 +20,10 @@ const singleLineTodoRegexFromSources = memoize(
 const multiLineTodoRegexFromSources = memoize(
   (withMatch: boolean, startRegexSource: string, endRegexSource: string) => {
     // Do not use multi-line regex. We only want to match a multi comment if it takes only one line
-    return new RegExp(`^(\\s*${startRegexSource}\\s*)${withMatch ? TODO_PATTERN_WITH_MATCH : TODO_PATTERN_WITHOUT_MATCH}(${endRegexSource})`, 'i');
+    return new RegExp(
+      `(${PRE_COMMENT_PATTERN}${startRegexSource}\\s*)${withMatch ? TODO_PATTERN_WITH_MATCH : TODO_PATTERN_WITHOUT_MATCH}(${endRegexSource})`,
+      'i',
+    );
   },
   {
     max: 100,
