@@ -1,7 +1,7 @@
 import memoize from 'memoizee';
 
-export const TODO_PATTERN_WITHOUT_MATCH = 'TODO:?\\s+';
-export const TODO_PATTERN_WITH_MATCH = `${TODO_PATTERN_WITHOUT_MATCH}(.*)`;
+export const TODO_PATTERN_WITHOUT_MATCH = 'TODO:?(?:\\s+|$)';
+export const TODO_PATTERN_WITH_MATCH = 'TODO:?\\s+(.*)';
 
 const singleLineTodoRegexFromSources = memoize(
   (match: boolean, ...regexSources: Array<string>) => {
