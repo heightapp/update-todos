@@ -66,7 +66,9 @@ const updateTodos = async ({filePath, repoPath, onCreateTask}: UpdateTodosParams
 
   // Create task for each todo
   todosInFlight.push(...newTodos);
-  newTodos.forEach(async (todo) => {
+
+  for (let i = 0; i < newTodos.length; i++) {
+    const todo = newTodos[i];
     // Create task
     let newTask: {index: number; name: string} | null = null;
     try {
@@ -88,7 +90,7 @@ const updateTodos = async ({filePath, repoPath, onCreateTask}: UpdateTodosParams
     todosInFlight = todosInFlight.filter((todoInFlight) => {
       return !isTodoEqual(todoInFlight, todo);
     });
-  });
+  }
 };
 
 export default updateTodos;
