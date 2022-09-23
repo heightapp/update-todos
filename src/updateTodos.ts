@@ -8,6 +8,7 @@ type FileLine = {
 
 type Todo = {
   name: string;
+  taskIndex: number | null;
   file: {
     path: string;
     line: FileLine;
@@ -43,6 +44,7 @@ const updateTodos = async ({filePath, repoPath, onCreateTask}: UpdateTodosParams
     if (todo) {
       todos.push({
         name: todo.name,
+        taskIndex: todo.taskIndex,
         file: {
           path: filePath,
           line,
@@ -69,21 +71,30 @@ const updateTodos = async ({filePath, repoPath, onCreateTask}: UpdateTodosParams
 
   for (let i = 0; i < newTodos.length; i++) {
     const todo = newTodos[i];
-    // Create task
-    let newTask: {index: number; name: string} | null = null;
-    try {
-      newTask = await onCreateTask(todo.name);
-    } catch (e) {
-      // Ignore errors
-    }
-
-    // Update line of file with task index and todo description
-    if (newTask) {
+    if (todo.taskIndex) {
+      // The todo already has a task index, just replace text
       await file.updateLine({
         lineIndex: todo.file.line.index,
         previousContent: todo.file.line.text,
-        newContent: `${todo.file.prefix}T-${newTask.index} ${newTask.name}${todo.file.suffix ? ` ${todo.file.suffix}` : ''}`,
+        newContent: `${todo.file.prefix}T-${todo.taskIndex} ${todo.name}${todo.file.suffix ? ` ${todo.file.suffix}` : ''}`,
       });
+    } else {
+      // Create task
+      let newTask: {index: number; name: string} | null = null;
+      try {
+        newTask = await onCreateTask(todo.name);
+      } catch (e) {
+        // Ignore errors
+      }
+
+      // Update line of file with task index and todo description
+      if (newTask) {
+        await file.updateLine({
+          lineIndex: todo.file.line.index,
+          previousContent: todo.file.line.text,
+          newContent: `${todo.file.prefix}T-${newTask.index} ${newTask.name}${todo.file.suffix ? ` ${todo.file.suffix}` : ''}`,
+        });
+      }
     }
 
     // Clear todo from in-flight list

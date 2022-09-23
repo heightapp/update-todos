@@ -1,7 +1,7 @@
 import memoize from 'memoizee';
 
 export const TODO_PATTERN_WITHOUT_MATCH = 'TODO:?(?:\\s+|$)';
-export const TODO_PATTERN_WITH_MATCH = 'TODO:?\\s+(.*)';
+export const TODO_PATTERN_WITH_MATCH = 'TODO:?(\\s+T-\\d+)?\\s+(.*)';
 
 const PRE_COMMENT_PATTERN = '.*(?:^|\\s+)';
 
@@ -31,7 +31,10 @@ const multiLineTodoRegexFromSources = memoize(
   },
 );
 
-export function singleLineTodoRegex(withMatch: true, ...regexes: Array<RegExp>): {regex: RegExp; prefixCapture: number; nameCapture: number};
+export function singleLineTodoRegex(
+  withMatch: true,
+  ...regexes: Array<RegExp>
+): {regex: RegExp; prefixCapture: number; taskIndexCapture: number; nameCapture: number};
 export function singleLineTodoRegex(withMatch: false, ...regexes: Array<RegExp>): RegExp;
 export function singleLineTodoRegex(withMatch: boolean, ...regexes: Array<RegExp>) {
   const regex = singleLineTodoRegexFromSources(withMatch, ...regexes.map((r) => r.source));
@@ -39,7 +42,8 @@ export function singleLineTodoRegex(withMatch: boolean, ...regexes: Array<RegExp
     return {
       regex,
       prefixCapture: 1,
-      nameCapture: 2,
+      taskIndexCapture: 2,
+      nameCapture: 3,
     };
   }
 
@@ -50,7 +54,7 @@ export function multiLineTodoRegex(
   withMatch: true,
   startRegexSource: RegExp,
   endRegexSource: RegExp,
-): {regex: RegExp; prefixCapture: number; nameCapture: number; suffixCapture: number};
+): {regex: RegExp; prefixCapture: number; taskIndexCapture: number; nameCapture: number; suffixCapture: number};
 export function multiLineTodoRegex(withMatch: false, startRegexSource: RegExp, endRegexSource: RegExp): RegExp;
 export function multiLineTodoRegex(withMatch: boolean, startRegexSource: RegExp, endRegexSource: RegExp) {
   const regex = multiLineTodoRegexFromSources(withMatch, startRegexSource.source, endRegexSource.source);
@@ -58,8 +62,9 @@ export function multiLineTodoRegex(withMatch: boolean, startRegexSource: RegExp,
     return {
       regex,
       prefixCapture: 1,
-      nameCapture: 2,
-      suffixCapture: 3,
+      taskIndexCapture: 2,
+      nameCapture: 3,
+      suffixCapture: 4,
     };
   }
 

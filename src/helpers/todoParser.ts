@@ -14,7 +14,17 @@ class TodoParser {
     this.filePath = filePath;
   }
 
-  parse(line: string): {prefix: string; suffix?: string; name: string} | null {
+  private taskIndexFromCapture(capture: string | undefined) {
+    if (!capture) {
+      return null;
+    }
+
+    const taskIndexString = capture.trim().replace(/T-/i, '');
+    const taskIndex = parseInt(taskIndexString, 10);
+    return isNaN(taskIndex) ? null : taskIndex;
+  }
+
+  parse(line: string): {prefix: string; suffix?: string; name: string; taskIndex: number | null} | null {
     // Find regex to use to find todos in the file
     const regexes = commentRegexesFromPath(this.filePath);
 
@@ -26,6 +36,7 @@ class TodoParser {
         return {
           prefix: singleLineMatch[singleLineRegex.prefixCapture],
           name: singleLineMatch[singleLineRegex.nameCapture].trim(),
+          taskIndex: this.taskIndexFromCapture(singleLineMatch[singleLineRegex.taskIndexCapture]),
         };
       }
     }
@@ -40,6 +51,7 @@ class TodoParser {
           prefix: multiLineMatch[mutiLineRegex.prefixCapture],
           suffix: multiLineMatch[mutiLineRegex.suffixCapture],
           name: multiLineMatch[mutiLineRegex.nameCapture].trim(),
+          taskIndex: this.taskIndexFromCapture(multiLineMatch[mutiLineRegex.taskIndexCapture]),
         };
       }
     }

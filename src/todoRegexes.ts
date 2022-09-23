@@ -5,8 +5,8 @@ import {multiLineTodoRegex, singleLineTodoRegex} from 'helpers/todoRegex';
 type WithMatchResult = {
   name: string;
   nameMatchers: Array<string>;
-  singleLine: {regex: RegExp; prefixCapture: number; nameCapture: number} | undefined;
-  multiLine: Array<{regex: RegExp; prefixCapture: number; nameCapture: number; suffixCapture: number}> | undefined;
+  singleLine: {regex: RegExp; prefixCapture: number; taskIndexCapture: number; nameCapture: number} | undefined;
+  multiLine: Array<{regex: RegExp; prefixCapture: number; taskIndexCapture: number; nameCapture: number; suffixCapture: number}> | undefined;
 };
 
 type WithoutMatchResult = {
