@@ -22,6 +22,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@gerhobbelt/gitignore-parser@^0.2.0-9":
+  version "0.2.0-9"
+  resolved "https://registry.yarnpkg.com/@gerhobbelt/gitignore-parser/-/gitignore-parser-0.2.0-9.tgz#39aac7182445348d339be51b00c419ee19eab680"
+  integrity sha512-leOyCx+xnmioBSPqdkFBi1drkdM+Nm5+MfgffRcdkcVVUjFuAlxqEJ7jkYeXyHLvL9/l7ejPGooE1TPAo7qmmA==
+
 "@heightapp/comment-patterns@0.13.0":
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/@heightapp/comment-patterns/-/comment-patterns-0.13.0.tgz#9242bec46021c80dde0886ffe0aabdf40c8451c0"
@@ -71,15 +76,10 @@
 
 "@types/git-diff-parser@^1.0.1":
   version "1.0.1"
-  resolved "https://registry.npmjs.org/@types/git-diff-parser/-/git-diff-parser-1.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/@types/git-diff-parser/-/git-diff-parser-1.0.1.tgz#21248d49887fe5bc33860c545f73bbba797bd7d0"
   integrity sha512-+4egjR2SDoiWFgLFaFpmMn9Xp+SE7QT5YxJ0CilXgw3VEdQjwuXHCVDKKoiOvyHro/4mx2FF/cFOJiHK2CVKWw==
   dependencies:
     "@types/node" "*"
-
-"@types/gitignore-parser@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.npmjs.org/@types/gitignore-parser/-/gitignore-parser-0.0.0.tgz"
-  integrity sha512-qxOKILdhl4e639fWdkMySS4tBkRYHkrU2ZNScsMu84EPicliFRr+gAXCLPrs7kTFWdDpgAIlxtUr+YCRtVjsKw==
 
 "@types/json-schema@^7.0.9":
   version "7.0.11"
@@ -93,18 +93,13 @@
 
 "@types/memoizee@^0.4.8":
   version "0.4.8"
-  resolved "https://registry.npmjs.org/@types/memoizee/-/memoizee-0.4.8.tgz"
+  resolved "https://registry.yarnpkg.com/@types/memoizee/-/memoizee-0.4.8.tgz#04adc0c266a0f5d72db0556fdda2ba17dad9b519"
   integrity sha512-qDpXKGgwKywnQt/64fH1O0LiPA++QGIYeykEUiZ51HymKVRLnUSGcRuF60IfpPeeXiuRwiR/W4y7S5VzbrgLCA==
 
-"@types/node@*":
-  version "18.7.13"
-  resolved "https://registry.npmjs.org/@types/node/-/node-18.7.13.tgz"
-  integrity sha512-46yIhxSe5xEaJZXWdIBP7GU4HDTG8/eo0qd9atdiL+lFpA03y8KS+lkTN834TWJj5767GbWv4n/P6efyTFt1Dw==
-
-"@types/node@^18.7.11":
-  version "18.7.11"
-  resolved "https://registry.npmjs.org/@types/node/-/node-18.7.11.tgz"
-  integrity sha512-KZhFpSLlmK/sdocfSAjqPETTMd0ug6HIMIAwkwUpU79olnZdQtMxpQP+G1wDzCH7na+FltSIhbaZuKdwZ8RDrw==
+"@types/node@*", "@types/node@^18.14.0":
+  version "18.14.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.14.0.tgz#94c47b9217bbac49d4a67a967fdcdeed89ebb7d0"
+  integrity sha512-5EWrvLmglK+imbCJY0+INViFWUHg1AHel1sq4ZVSfdcNqGy9Edv3UB9IIzzg+xPaUcAgZYcfVs2fBcwDeZzU0A==
 
 "@typescript-eslint/eslint-plugin@5.11.0":
   version "5.11.0"
@@ -982,11 +977,6 @@ git-diff-parser@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/git-diff-parser/-/git-diff-parser-1.0.0.tgz"
   integrity sha512-m6I3x7Amb759jXYDITS8M8GfdxV636ni2zV2/RrGtEMuH3CD45hbTFsTaVtmYsTsIQ3x7jibsOcFOqJvP6ptxg==
-
-gitignore-parser@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.npmjs.org/gitignore-parser/-/gitignore-parser-0.0.2.tgz"
-  integrity sha512-X6mpqUv59uWLGD4n3hZ8Cu8KbF2PMWPSFYmxZjdkpm3yOU7hSUYnzTkZI1mcWqchphvqyuz3/BhgBR4E/JtkCg==
 
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"

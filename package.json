@@ -27,6 +27,9 @@
   },
   "homepage": "https://github.com/heightapp/update-todos#readme",
   "devDependencies": {
+    "@types/git-diff-parser": "^1.0.1",
+    "@types/memoizee": "^0.4.8",
+    "@types/node": "^18.14.0",
     "@typescript-eslint/eslint-plugin": "5.11.0",
     "@typescript-eslint/parser": "^5.34.0",
     "esbuild": "^0.15.5",
@@ -39,13 +42,9 @@
     "yargs": "^17.5.1"
   },
   "dependencies": {
+    "@gerhobbelt/gitignore-parser": "^0.2.0-9",
     "@heightapp/comment-patterns": "0.13.0",
-    "@types/git-diff-parser": "^1.0.1",
-    "@types/gitignore-parser": "^0.0.0",
-    "@types/memoizee": "^0.4.8",
-    "@types/node": "^18.7.11",
     "git-diff-parser": "^1.0.0",
-    "gitignore-parser": "^0.0.2",
     "memoizee": "^0.4.15"
   }
 }

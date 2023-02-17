@@ -1,4 +1,4 @@
-import {compile as gitIgnoreParserCompile} from 'gitignore-parser';
+import {compile as gitIgnoreParserCompile} from '@gerhobbelt/gitignore-parser';
 
 import fs from 'fs';
 import path from 'path';
